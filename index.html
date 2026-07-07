@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jan Strnka | Finanční plánování</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600&amp;display=swap');
+        
+        :root {
+            --primary: #9f1239;
+            --accent: #e11d48;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+            line-height: 1.65;
+            color: #333;
+        }
+        
+        h1, h2, h3 { font-family: 'Playfair Display', sans-serif; font-weight: 600; }
+        
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+        
+        header {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
+            z-index: 1000; border-bottom: 1px solid #eee;
+        }
+        
+        nav {
+            display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+        
+        .nav-links {
+            display: flex; gap: 2.2rem; list-style: none;
+        }
+        
+        .nav-links a { text-decoration: none; color: #333; font-weight: 500; }
+        .nav-links a:hover { color: var(--accent); }
+        
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #9f1239 0%, #e11d48 50%, #f43f5e 100%);
+            display: flex; align-items: center; color: white;
+            position: relative;
+            text-align: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://picsum.photos/id/1015/2000/1200') center/cover;
+            opacity: 0.22;
+            mix-blend-mode: overlay;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 { 
+            font-size: 4.2rem; 
+            line-height: 1.15; 
+            margin-bottom: 1.4rem; 
+        }
+        
+        .hero p {
+            font-size: 1.45rem;
+            max-width: 680px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block; 
+            background: var(--primary); 
+            color: white;
+            padding: 18px 42px; 
+            border-radius: 50px; 
+            font-weight: 600;
+            text-decoration: none; 
+            font-size: 1.2rem; 
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(159, 18, 57, 0.3);
+        }
+        
+        .cta-button:hover { 
+            transform: translateY(-6px); 
+            box-shadow: 0 10px 25px rgba(225,29,72,0.4);
+            background: var(--accent);
+        }
+        
+        section { padding: 110px 0; }
+        
+        .section-header h2 {
+            font-size: 2.9rem; color: var(--primary); margin-bottom: 1rem; text-align: center;
+        }
+        
+        /* PORADENSTVÍ */
+        .poradenstvi {
+            background: #f8fafc;
+        }
+        
+        .poradenstvi-content { max-width: 1100px; margin: 0 auto; }
+        
+        .poradenstvi-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+        
+        .questions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .questions li {
+            padding: 10px 0;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .questions li:before {
+            content: "✔";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.4s;
+        }
+        
+        .service-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(225,29,72,0.1);
+        }
+        
+        .icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            display: block;
+            text-align: center;
+        }
+        
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        /* Vylepšené seznamy */
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .service-card li {
+            padding: 7px 0;
+            line-height: 1.45;
+        }
+        
+        /* O MNĚ */
+        #o-mne .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        
+        #o-mne img {
+            width: 75%;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(159,18,57,0.3);
+        }
+        
+        /* DISCLAIMER */
+        .disclaimer {
+            font-size: 0.78rem;
+            line-height: 1.5;
+            color: #666;
+            text-align: justify;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 20px;
+        }
+        
+        .disclaimer a {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="foto_kulate.png" alt="Jan Strnka">
+                    Ing. Jan Strnka, MBA
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#poradenstvi">Poradenství</a></li>
+                    <li><a href="#sluzby">Služby</a></li>
+                    <li><a href="#proces">Jak to funguje</a></li>
+                    <li><a href="#o-mne">O mně</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Finanční plánování, na které se můžete spolehnout</h1>
+            <p>Osobní přístup, dlouhodobá strategie a férovost. Pomohu vám získat klid a přehled nad vašimi financemi.</p>
+            <a href="#kontakt" class="cta-button">Domluvit si nezávaznou schůzku</a>
+        </div>
+    </section>
+
+    <!-- PORADENSTVÍ -->
+    <section id="poradenstvi" class="poradenstvi">
+        <div class="container poradenstvi-content">
+            <div class="section-header">
+                <h2>Poradenství</h2>
+            </div>
+            
+            <div class="poradenstvi-intro">
+                <p>Moje služby zahrnují komplexní poradenství, které vám pomůže dosáhnout vašich cílů a zajistit finanční stabilitu pro vás i vaši rodinu. Spolu najdeme ta nejlepší řešení v oblastech pojištění, investic, úvěrů a spoření. Vše s důrazem na individuální přístup a dlouhodobou spolupráci.</p>
+            </div>
+            
+            <div class="questions">
+                <ul>
+                    <li>Jsou rizika, na která jste pojištěni, skutečně relevantní pro vaši situaci?</li>
+                    <li>Máte správně nastavenou smlouvu životního pojištění?</li>
+                    <li>Je vaše domácnost pojištěna proti všem možným rizikům?</li>
+                    <li>Víte, že pravidelná revize pojištění může ušetřit peníze a zajistit adekvátní krytí?</li>
+                </ul>
+                <ul>
+                    <li>Máte úrokovou sazbu u spotřebitelského úvěru větší než 9 % p.a.?</li>
+                    <li>Jsou vaše investice diverzifikované a odpovídají vašim cílům?</li>
+                    <li>Máte jasno v tom, jak efektivně spořit na důchod?</li>
+                    <li>Zvažujete refinancování hypotéky, ale nejste si jisti, zda je to pro vás výhodné?</li>
+                </ul>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="icon">💰</span>
+                    <h3>Finanční poradenství</h3>
+                    <p>Optimalizace vašich financí a dlouhodobá finanční strategie, která vám poskytne jistotu a klid v různých životních situacích.</p>
+                </div>
+                <div class="service-card">
+                    <span class="icon">🛡️</span>
+                    <h3>Pojištění</h3>
+                    <p>Ochrana pro vaši rodinu s individuálním přístupem, výběr správného pojištění, které odpovídá vaší situaci.</p>
+                </div>
+                <div class="service-card">
+                    <span class="icon">📈</span>
+                    <h3>Investice</h3>
+                    <p>Zhodnocení vašich úspor prostřednictvím dobře vybraných investičních produktů, které minimalizují rizika.</p>
+                </div>
+                <div class="service-card">
+                    <span class="icon">🏠</span>
+                    <h3>Úvěry</h3>
+                    <p>Výběr nejvhodnějšího úvěru a efektivní řízení dluhů, abyste mohli klidně splácet a zároveň ušetřit.</p>
+                </div>
+                <div class="service-card">
+                    <span class="icon">💳</span>
+                    <h3>Spoření</h3>
+                    <p>Plánování budoucnosti a výběr spořicích produktů, které vám pomohou dosáhnout vašich finančních cílů.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLUŽBY -->
+    <section id="sluzby">
+        <div class="container">
+            <div class="section-header">
+                <h2>Služby a produkty</h2>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(360px,1fr)); gap:2rem;">
+                <div class="service-card">
+                    <h3>Pojištění</h3>
+                    <ul>
+                        <li>Životní a úrazová pojištění</li>
+                        <li>Pojištění majetku</li>
+                        <li>Pojištění odpovědnosti v běžném občanském životě</li>
+                        <li>Pojištění odpovědnosti vůči škodě způsobené zaměstnavateli</li>
+                        <li>Pojištění vozidel</li>
+                        <li>Cestovní pojištění</li>
+                        <li>Pojištění mazlíčků</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Úvěry</h3>
+                    <ul>
+                        <li>Hypoteční úvěry</li>
+                        <li>Úvěry na bydlení</li>
+                        <li>Spotřebitelské úvěry</li>
+                        <li>Refinancování a konsolidace</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Investice a spoření</h3>
+                    <ul>
+                        <li>Podílové fondy</li>
+                        <li>ETF fondy</li>
+                        <li>Dluhopisy</li>
+                        <li>Termínované vklady</li>
+                        <li>Spořící účty</li>
+                        <li>Stavební spoření</li>
+                        <li>Investice do zlata a stříbra</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Penze</h3>
+                    <ul>
+                        <li>Doplňkové penzijní spoření</li>
+                        <li>Tvorba finanční rezervy na důchod</li>
+                        <li>DIP</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCES -->
+    <section id="proces" style="background:#fff1f2;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Jak spolupráce probíhá</h2>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:2rem;">
+                <div class="step"><strong style="color:var(--accent); font-size:2.5rem;">01</strong><h3>Úvodní schůzka</h3><p>Nezávazně probereme vaši situaci.</p></div>
+                <div class="step"><strong style="color:var(--accent); font-size:2.5rem;">02</strong><h3>Finanční plán</h3><p>Připravím vám osobní analýzu a doporučení.</p></div>
+                <div class="step"><strong style="color:var(--accent); font-size:2.5rem;">03</strong><h3>Implementace</h3><p>Společně nastavíme řešení.</p></div>
+                <div class="step"><strong style="color:var(--accent); font-size:2.5rem;">04</strong><h3>Servis</h3><p>Pravidelné revize a dlouhodobá podpora.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- O MNĚ -->
+    <section id="o-mne">
+        <div class="container">
+            <div class="about-grid">
+                <div>
+                    <img src="ja.jpg" alt="Jan Strnka">
+                </div>
+                <div>
+                    <p style="font-size:1.1rem; margin-bottom:1.2rem;">
+                        Jmenuji se Jan Strnka a věnuji se finančnímu poradenství.
+                    </p>
+                    <p style="font-size:1.1rem; margin-bottom:1.2rem;">
+                        Pracuji s lidmi, kteří chtějí mít ve svých financích jasno, řád a dlouhodobou jistotu. Finanční poradenství vnímám jako odpovědnost i závazek – pomoci nastavit rozhodnutí tak, aby dávala smysl nejen dnes, ale i v dalších letech života.
+                    </p>
+                    <p style="font-size:1.1rem; margin-bottom:1.2rem;">
+                        Specializuji se na komplexní finanční plánování v oblastech pojištění, investic, úvěrů a spoření. Každý návrh stavím na důkladné analýze, individuálním přístupu a pochopení vašich skutečných potřeb a cílů.
+                    </p>
+                    <p style="font-size:1.1rem;">
+                        Mým cílem není prodat produkt, ale vytvořit dlouhodobou strategii, která vás provede finančním rozhodováním s jistotou a klidem. Spolupráce pro mě nekončí podpisem smlouvy — právě tam začíná.
+                    </p>
+                    <a href="#kontakt" class="cta-button" style="margin-top:2.2rem;">Domluvit si schůzku</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt" class="contact-section">
+        <div class="container" style="text-align:center; max-width:680px; margin:0 auto;">
+            <p style="font-size:1.8rem; margin-bottom:1.8rem; max-width:720px; margin-left:auto; margin-right:auto; line-height:1.3;">
+                Drtivou většinu života pracujete pro peníze.<br>
+                Chcete, aby ony pracovaly pro vás?
+            </p>
+            
+            <a href="mailto:jan.strnka@smsfinance.cz" class="cta-button" style="margin: 1.5rem 0 2.5rem;">Napište mi</a>
+            
+            <p style="font-size:1.35rem; margin:2rem 0;">Ozvu se vám co nejdříve.</p>
+            
+            <div style="background:rgba(255,255,255,0.15); padding:3rem; border-radius:20px; margin-top:2rem;">
+                <p><strong>Jan Strnka</strong><br>
+                SMS Finance • Zlín • Ostrava • Brno • online kdekoli</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DISCLAIMER -->
+    <div class="disclaimer">
+        <p>Zprostředkovávám pojištění, úvěry, doplňkové penzijní spoření a investice jako vázaný zástupce společnosti Stelar Advisory, a. s., která je vedena v registru ČNB jako samostatný a investiční zprostředkovatel IČO: 25381512. I já, Jan Strnka, jsem registrován v registru ČNB, jako vázaný zástupce, a to pod IČO: 23564954.</p>
+        <ul style="margin-top: 1rem; padding-left: 1.2rem;">
+            <li>spotřebitelské úvěry dle zákona č. 257/2016 Sb.</li>
+            <li>investice podle zákona č. 256/2004 Sb.</li>
+            <li>pojištění dle zákona č. 170/2018 Sb.</li>
+            <li>doplňkové penzijní spoření dle zákona č. 427/2011 Sb.</li>
+        </ul>
+        <p style="margin-top: 1.2rem;">
+            Všechna oprávnění je možné ověřit v Seznamu regulovaných a registrovaných subjektů finančního trhu České národní banky na 
+            <a href="http://www.cnb.cz/cnb/jerrs" target="_blank">www.cnb.cz/cnb/jerrs</a>, kde také najdete aktuální informace a podrobnosti o registraci a rozsahu oprávnění.
+        </p>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Ing. Jan Strnka, MBA, IČO: 23564954, vázaný zástupce Stelar Advisory, a.s., IČ: 25381512</p>
+        </div>
+    </footer>
+</body>
+</html>
