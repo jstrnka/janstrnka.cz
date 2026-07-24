@@ -13,6 +13,7 @@
             --lighter-red: #fff1f2;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', system_ui, sans-serif;
             line-height: 1.65;
@@ -159,6 +160,7 @@
         .questions ul { list-style: none; padding: 0; margin: 0; }
         .questions li { padding: 10px 0 10px 32px; position: relative; }
         .questions li:before { content: "✔"; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
+        /* SLUŽBY */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -246,6 +248,7 @@
             </nav>
         </div>
     </header>
+
     <!-- HERO -->
     <section class="hero">
         <video class="hero-video" autoplay muted loop playsinline>
@@ -258,42 +261,37 @@
             <a href="#poradenstvi" class="cta-button">Zjistit více</a>
         </div>
     </section>
+
     <!-- KLID PRO RODINU -->
     <section class="klid-sekce">
         <div class="container">
-           
-  <h3 style="text-align:center; margin-top:1rem; font-size:1.75rem; color:var(--primary);">
+            <h3 style="text-align:center; margin-top:1rem; font-size:1.75rem; color:var(--primary);">
                 Přestaňte obíhat banky.<br>Získejte finanční klid pro celou rodinu.
             </h3>
-   
             <p class="klid-perex">
                 Také vás unavuje chodit do banky kvůli každé drobnosti, odmítat neustálé „výhodné“ nabídky a ztrácet čas papírováním?
                 Chcete mít v rodinných financích konečně pořádek a jasný plán, ale doteď jste na to nenašli čas?
             </p>
-   
             <h3 class="klid-h3">Představte si, že by tohle všechno někdo vyřešil za vás</h3>
-   
             <p style="text-align:center; max-width:780px; margin:0 auto 3rem; font-size:1.15rem;">
                 Zjistíme vaše potřeby, cíle a s ohledem na vaši aktuální situaci připravíme řešení šité na míru.
                 Komplexně se postaráme o vaše rodinné finance, abyste vy nemuseli.
             </p>
-   
             <h3 style="text-align:center; margin-top:4rem; font-size:1.75rem; color:var(--primary);">
                 Vy se věnujte své rodině. O zbytek se postaráme my.
             </h3>
         </div>
     </section>
+
     <!-- PORADENSTVÍ -->
     <section id="poradenstvi" class="poradenstvi">
         <div class="container">
             <div class="section-header">
                 <h2>Poradenství</h2>
             </div>
-   
             <div class="poradenstvi-intro">
                 <p>Moje služby zahrnují komplexní poradenství, které vám pomůže dosáhnout vašich cílů a zajistit finanční stabilitu pro vás i vaši rodinu. Spolu najdeme ta nejlepší řešení v oblastech pojištění, investic, úvěrů a spoření. Vše s důrazem na individuální přístup a dlouhodobou spolupráci.</p>
             </div>
-   
             <div class="questions">
                 <ul>
                     <li>Jsou rizika, na která jste pojištěni, skutečně relevantní pro vaši situaci?</li>
@@ -308,7 +306,6 @@
                     <li>Zvažujete refinancování hypotéky, ale nejste si jisti, zda je to pro vás výhodné?</li>
                 </ul>
             </div>
-   
             <div class="services-grid">
                 <div class="service-card">
                     <span class="icon">💰</span>
@@ -349,6 +346,7 @@
             </div>
         </div>
     </section>
+
     <!-- KOMPLEXNÍ SPRÁVA FINANCÍ -->
     <section id="komplexni-sprava" class="komplexni-sprava">
         <div class="container">
@@ -363,6 +361,7 @@
             </div>
         </div>
     </section>
+
     <!-- POJIŠTĚNÍ MAJETKU -->
     <section id="pojisteni-majetku" class="pojisteni-majetku">
         <div class="container">
@@ -377,6 +376,7 @@
             </div>
         </div>
     </section>
+
     <!-- INVESTICE -->
     <section id="investice" class="investice">
         <div class="container">
@@ -393,6 +393,7 @@
             </div>
         </div>
     </section>
+
     <!-- HYPOTÉKY -->
     <section id="hypoteky" class="hypoteky">
         <div class="container">
@@ -405,6 +406,7 @@
             </div>
         </div>
     </section>
+
     <!-- PŮJČKY -->
     <section id="pujcky" class="pujcky">
         <div class="container">
@@ -419,6 +421,7 @@
             </div>
         </div>
     </section>
+
     <!-- ZABEZPEČENÍ RODINY -->
     <section id="zabezpeceni-rodiny" class="zabezpeceni-rodiny">
         <div class="container">
@@ -433,13 +436,14 @@
             </div>
         </div>
     </section>
+
     <!-- SLUŽBY -->
     <section id="sluzby">
         <div class="container">
             <div class="section-header">
                 <h2>Služby a produkty</h2>
             </div>
-            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(360px,1fr)); gap:2rem;">
+            <div class="services-grid">
                 <div class="service-card">
                     <h3>Pojištění</h3>
                     <ul>
@@ -484,6 +488,7 @@
             </div>
         </div>
     </section>
+
     <!-- PROCES -->
     <section id="proces">
         <div class="container">
@@ -504,6 +509,7 @@ jsme vám k dispozici.</p></div>
             </div>
         </div>
     </section>
+
     <!-- O MNĚ -->
     <section id="o-mne">
         <div class="container">
@@ -528,6 +534,7 @@ jsme vám k dispozici.</p></div>
             </div>
         </div>
     </section>
+
     <!-- KONTAKT -->
     <section id="kontakt" class="contact-section">
         <div class="container" style="text-align:center; max-width:680px; margin:0 auto;">
@@ -546,6 +553,7 @@ jsme vám k dispozici.</p></div>
             </div>
         </div>
     </section>
+
     <!-- DISCLAIMER -->
     <div class="disclaimer">
         <p>Zprostředkovávám pojištění, úvěry, doplňkové penzijní spoření a investice jako vázaný zástupce společnosti Stelar Advisory, a. s., která je vedena v registru ČNB jako samostatný a investiční zprostředkovatel IČO: 25381512. I já, Jan Strnka, jsem registrován v registru ČNB, jako vázaný zástupce, a to pod IČO: 23564954.</p>
@@ -560,6 +568,7 @@ jsme vám k dispozici.</p></div>
             <a href="http://www.cnb.cz/cnb/jerrs" target="_blank">www.cnb.cz/cnb/jerrs</a>, kde také najdete aktuální informace a podrobnosti o registraci a rozsahu oprávnění.
         </p>
     </div>
+
     <footer>
         <div class="container">
             <p>© 2026 Ing. Jan Strnka, MBA, IČO: 23564954, vázaný zástupce Stelar Advisory, a.s., IČ: 25381512</p>
