@@ -6,30 +6,32 @@
     <title>Ing. Jan Strnka, MBA | Finance & Wealth Management</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600&amp;display=swap');
-   
+ 
         :root {
             --primary: #9f1239;
             --accent: #e11d48;
+            --light: #f8fafc;
+            --lighter-red: #fff1f2;
         }
-   
+ 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-   
+ 
         body {
             font-family: 'Inter', system_ui, sans-serif;
             line-height: 1.65;
             color: #333;
         }
-   
+ 
         h1, h2, h3 { font-family: 'Playfair Display', sans-serif; font-weight: 600; }
-   
+ 
         .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
-   
+ 
         header {
             position: fixed; top: 0; left: 0; right: 0;
             background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
             z-index: 1000; border-bottom: 1px solid #eee;
         }
-   
+ 
         nav {
             display: flex;
             justify-content: space-between;
@@ -38,19 +40,19 @@
             max-width: 1280px;
             margin: 0 auto;
         }
-   
+ 
         .logo {
             display: flex;
             align-items: center;
             gap: 12px;
         }
-   
+ 
         .logo img {
             height: 52px;
             width: auto;
             object-fit: contain;
         }
-   
+ 
         .nav-links {
             display: flex;
             gap: 2.6rem;
@@ -58,7 +60,7 @@
             margin: 0;
             padding: 0;
         }
-   
+ 
         .nav-links a {
             text-decoration: none;
             color: #333;
@@ -68,69 +70,56 @@
         .nav-links a:hover {
             color: var(--accent);
         }
-   
+ 
         /* Hero */
         .hero {
             min-height: 100vh;
             background: linear-gradient(135deg, #9f1239 0%, #e11d48 50%, #f43f5e 100%);
             display: flex; align-items: center; color: white;
             position: relative;
+            overflow: hidden;
             text-align: center;
         }
-   
-         
-       .hero {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #9f1239 0%, #e11d48 50%, #f43f5e 100%);
-    display: flex;
-    align-items: center;
-    color: white;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-}
-
-/* Video na pozadí */
-.hero-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.5;
-    z-index: 1;
-}
-
-/* Překryv s gradientem */
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, #9f1239 0%, #e11d48 50%, #f43f5e 100%);
-    z-index: 0;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-   
+      
+        .hero-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.5;
+            z-index: 1;
+        }
+      
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #9f1239 0%, #e11d48 50%, #f43f5e 100%);
+            z-index: 0;
+        }
+      
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+ 
         .hero h1 {
             font-size: 4.2rem;
             line-height: 1.15;
             margin-bottom: 1.4rem;
         }
-   
+ 
         .hero p {
             font-size: 1.45rem;
             max-width: 680px;
             margin: 0 auto 2.5rem;
             opacity: 0.95;
         }
-   
+ 
         .cta-button {
             display: inline-block;
             background: var(--primary);
@@ -143,49 +132,44 @@
             transition: all 0.3s;
             box-shadow: 0 4px 15px rgba(159, 18, 57, 0.3);
         }
-   
+ 
         .cta-button:hover {
             transform: translateY(-6px);
             box-shadow: 0 10px 25px rgba(225,29,72,0.4);
             background: var(--accent);
         }
-   
+ 
         section { padding: 80px 0; }
-   
+ 
         .section-header h2 {
             font-size: 2.9rem; color: var(--primary); margin-bottom: 1rem; text-align: center;
         }
-   
-        /* Nová sekce - Klid pro rodinu */
-        .klid-sekce {
-            background: #f8fafc;
-            padding-bottom: 60px;
-        }
-   
-        .klid-h2 {
-            font-size: 2.6rem;
-            line-height: 1.25;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto 2.5rem;
-            color: var(--primary);
-        }
-   
-        .klid-perex {
-            font-size: 1.22rem;
-            text-align: center;
-            max-width: 780px;
-            margin: 0 auto 3.5rem;
+ 
+        /* Barevné střídání sekcí */
+        .klid-sekce { background: var(--light); }
+        .poradenstvi { background: #ffffff; }
+        .komplexni-sprava { background: var(--lighter-red); }
+        .pojisteni-majetku { background: var(--light); }
+        .investice { background: #ffffff; }
+        .hypoteky { background: var(--lighter-red); }
+        .pujcky { background: var(--light); }
+        .zabezpeceni-rodiny { background: #ffffff; }
+        #sluzby { background: var(--lighter-red); }
+        #proces { background: var(--light); }
+        #o-mne { background: #ffffff; }
+        #kontakt { background: var(--lighter-red); }
+ 
+        .klid-h2, .klid-perex, .klid-h3,
+        .komplexni-text, .pojisteni-text, .investice-text,
+        .hypoteky-text, .pujcky-text, .zabezpeceni-text {
+            max-width: 820px;
+            margin: 0 auto;
+            font-size: 1.18rem;
+            line-height: 1.75;
             color: #444;
-        }
-   
-        .klid-h3 {
-            font-size: 1.65rem;
             text-align: center;
-            margin-bottom: 2rem;
-            color: var(--primary);
         }
-   
+ 
         /* PORADENSTVÍ */
         .questions {
             display: grid;
@@ -193,32 +177,17 @@
             gap: 2.5rem;
             margin-bottom: 4rem;
         }
-   
-        .questions ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-   
-        .questions li {
-            padding: 10px 0 10px 32px;
-            position: relative;
-        }
-   
-        .questions li:before {
-            content: "✔";
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-   
+ 
+        .questions ul { list-style: none; padding: 0; margin: 0; }
+        .questions li { padding: 10px 0 10px 32px; position: relative; }
+        .questions li:before { content: "✔"; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
+ 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
-   
+ 
         .service-card {
             background: white;
             border: 1px solid #eee;
@@ -227,37 +196,34 @@
             text-align: center;
             transition: all 0.4s;
         }
-   
+ 
         .service-card:hover {
             border-color: var(--accent);
             transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(225,29,72,0.1);
         }
-   
-        .icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            display: block;
-            text-align: center;
+ 
+        .icon { font-size: 3.5rem; margin-bottom: 1rem; display: block; text-align: center; }
+        .service-card h3 { color: var(--primary); margin-bottom: 1rem; text-align: center; }
+ 
+        .service-card .card-button {
+            display: inline-block;
+            margin-top: 1.5rem;
+            background: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: all 0.3s;
         }
-   
-        .service-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            text-align: center;
+ 
+        .service-card .card-button:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
         }
-   
-        .service-card ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-   
-        .service-card li {
-            padding: 7px 0;
-            line-height: 1.45;
-        }
-   
+ 
         /* O MNĚ */
         #o-mne .about-grid {
             display: grid;
@@ -265,13 +231,13 @@
             gap: 5rem;
             align-items: center;
         }
-   
+ 
         #o-mne img {
             width: 75%;
             border-radius: 16px;
             box-shadow: 0 25px 50px -12px rgba(159,18,57,0.3);
         }
-   
+ 
         /* DISCLAIMER */
         .disclaimer {
             font-size: 0.75rem;
@@ -282,11 +248,8 @@
             margin: 0 auto;
             padding: 2rem 20px 2.5rem;
         }
-   
-        .disclaimer a {
-            color: var(--accent);
-            text-decoration: underline;
-        }
+ 
+        .disclaimer a { color: var(--accent); text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -308,38 +271,39 @@
     </header>
 
     <!-- HERO -->
-  <section class="hero">
+    <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="video_preview_h264.mp4" type="video/mp4">
+            Váš prohlížeč nepodporuje HTML5 video.
+        </video>
+        <div class="hero-content">
+            <h1>Finance, které dávají smysl.</h1>
+            <p>Váš partner pro důležitá finanční rozhodnutí – srozumitelně, férově a bez zbytečných složitostí.</p>
+            <a href="#poradenstvi" class="cta-button">Zjistit více</a>
+        </div>
+    </section>
 
-    <video class="hero-video" autoplay muted loop playsinline>
-        <source src="video_preview_h264.mp4" type="video/mp4">
-        Váš prohlížeč nepodporuje HTML5 video.
-    </video>
-
-    <div class="hero-content">
-        <h1>Finance, které dávají smysl.</h1>
-        <p>Váš partner pro důležitá finanční rozhodnutí – srozumitelně, férově a bez zbytečných složitostí.</p>
-        <a href="#poradenstvi" class="cta-button">Zjistit více</a>
-    </div>
-
-</section>
-
-    <!-- NOVÁ SEKCE - hned pod hero -->
+    <!-- KLID PRO RODINU -->
     <section class="klid-sekce">
         <div class="container">
-            <h2 class="klid-h2">Přestaňte obíhat banky.<br>Získejte finanční klid pro celou rodinu.</h2>
-       
+            
+ 	<h3 style="text-align:center; margin-top:1rem; font-size:1.75rem; color:var(--primary);">
+                Přestaňte obíhat banky.<br>Získejte finanční klid pro celou rodinu.
+            </h3>
+
+    
             <p class="klid-perex">
                 Také vás unavuje chodit do banky kvůli každé drobnosti, odmítat neustálé „výhodné“ nabídky a ztrácet čas papírováním?
                 Chcete mít v rodinných financích konečně pořádek a jasný plán, ale doteď jste na to nenašli čas?
             </p>
-       
+    
             <h3 class="klid-h3">Představte si, že by tohle všechno někdo vyřešil za vás</h3>
-       
+    
             <p style="text-align:center; max-width:780px; margin:0 auto 3rem; font-size:1.15rem;">
                 Zjistíme vaše potřeby, cíle a s ohledem na vaši aktuální situaci připravíme řešení šité na míru.
                 Komplexně se postaráme o vaše rodinné finance, abyste vy nemuseli.
             </p>
-       
+    
             <h3 style="text-align:center; margin-top:4rem; font-size:1.75rem; color:var(--primary);">
                 Vy se věnujte své rodině. O zbytek se postaráme my.
             </h3>
@@ -348,15 +312,15 @@
 
     <!-- PORADENSTVÍ -->
     <section id="poradenstvi" class="poradenstvi">
-        <div class="container poradenstvi-content">
+        <div class="container">
             <div class="section-header">
                 <h2>Poradenství</h2>
             </div>
-       
+    
             <div class="poradenstvi-intro">
                 <p>Moje služby zahrnují komplexní poradenství, které vám pomůže dosáhnout vašich cílů a zajistit finanční stabilitu pro vás i vaši rodinu. Spolu najdeme ta nejlepší řešení v oblastech pojištění, investic, úvěrů a spoření. Vše s důrazem na individuální přístup a dlouhodobou spolupráci.</p>
             </div>
-       
+    
             <div class="questions">
                 <ul>
                     <li>Jsou rizika, na která jste pojištěni, skutečně relevantní pro vaši situaci?</li>
@@ -371,38 +335,134 @@
                     <li>Zvažujete refinancování hypotéky, ale nejste si jisti, zda je to pro vás výhodné?</li>
                 </ul>
             </div>
-       
+    
             <div class="services-grid">
                 <div class="service-card">
                     <span class="icon">💰</span>
                     <h3>Komplexní správa financí</h3>
                     <p>Chci důvěryhodného poradce, který se mi postará o všechny finanční služby.</p>
+                    <a href="#komplexni-sprava" class="card-button">Chci vědět víc</a>
                 </div>
                 <div class="service-card">
                     <span class="icon">🛡️</span>
                     <h3>Chci pojistit svůj majetek</h3>
                     <p>Kvalitní ochrana vašeho majetku, výběr správného pojištění pro vaše klidné spaní.</p>
+                    <a href="#pojisteni-majetku" class="card-button">Chci vědět víc</a>
                 </div>
                 <div class="service-card">
                     <span class="icon">📈</span>
                     <h3>Chci investovat</h3>
                     <p>Naspořím si na penzi, dětem na studium, nebo zhodnotím prostředky, které mi na účtu leží ladem.</p>
+                    <a href="#investice" class="card-button">Chci vědět víc</a>
                 </div>
                 <div class="service-card">
                     <span class="icon">🏠</span>
                     <h3>Zařizuji nové bydlení</h3>
                     <p>Hypoteční trh je složitý a nemám čas jej studovat. Poraďte mi.</p>
+                    <a href="#hypoteky" class="card-button">Chci vědět víc</a>
                 </div>
                 <div class="service-card">
                     <span class="icon">💳</span>
                     <h3>Chci si půjčit</h3>
                     <p>Pro své plány nemám dostatek prostředků. Chci poradit, která půjčka mi bude vyhovovat.</p>
+                    <a href="#pujcky" class="card-button">Chci vědět víc</a>
                 </div>
                 <div class="service-card">
                     <span class="icon">👨‍👩‍👧‍👦</span>
                     <h3>Potřebuji zabezpečit rodinu</h3>
                     <p>Rodina je základ. Nechci nechat nic náhodě, proto do ní investuji.</p>
+                    <a href="#zabezpeceni-rodiny" class="card-button">Chci vědět víc</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KOMPLEXNÍ SPRÁVA FINANCÍ -->
+    <section id="komplexni-sprava" class="komplexni-sprava">
+        <div class="container">
+            <div class="section-header">
+                <h2>💰 Komplexní správa financí</h2>
+            </div>
+            <div class="komplexni-text">
+                <p>Finančních institucí a jejich produktů je neuvěřitelné množství. Vyznat se ve všem je náročné. Sice existují různé jednoduché porovnávače, nicméně ty vám nepoví ta skrytá různá „ale“. Vypadá to, že si člověk musí vzít dovolenou, aby byl vše schopný zjistit, oběhat a úspěšně zařídit.</p>
+                <p><strong>Proto jsme tu my.</strong> Vše za vás zařídíme a ušetříme vám čas, který můžete investovat lépe. Třeba do své rodiny nebo do svých zájmů.</p>
+                <p>Každodenně sledujeme, co se ve světě financí děje a jak se jednotlivé produkty mění. Zajistíme vám například nejvýhodnější hypotéku. Poradíme, jak nejlépe investovat nebo po kterých produktech se podívat, když třeba začínáte podnikat nebo si potřebujete půjčit.</p>
+                <p>Nastavíme vaše finanční produkty komplexně tak, aby se vzájemně doplňovaly a vy jste mohli usínat bez starostí.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- POJIŠTĚNÍ MAJETKU -->
+    <section id="pojisteni-majetku" class="pojisteni-majetku">
+        <div class="container">
+            <div class="section-header">
+                <h2>🛡️ Pojištění majetku</h2>
+            </div>
+            <div class="pojisteni-text">
+                <p><strong>Pojištění, které minimalizuje škody.</strong></p>
+                <p>Nikdy nevíte, co vás může zaskočit. Proto je lepší se na to co nejlépe připravit.</p>
+                <p>Existuje mnoho zajímavých produktů, s kterými bude vypořádání se s jakoukoli pohromou jednodušší. Společně vybereme vhodný produkt. Do pojišťovny už nebudete muset chodit.</p>
+                <p>Rádi s vámi nastavíme vedle pojištění nemovitého i movitého majetku i jiné oblasti, jako je pojištění občanské odpovědnosti nebo odpovědnosti v zaměstnání.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INVESTICE -->
+    <section id="investice" class="investice">
+        <div class="container">
+            <div class="section-header">
+                <h2>📈 Investice</h2>
+            </div>
+            <div class="investice-text">
+                <p><strong>Investice přesně vám na míru</strong></p>
+                <p>Máte k dispozici finanční prostředky navíc? Byla by škoda je nechat ležet ladem jen tak na účtu.</p>
+                <p>V dnešní době existuje mnoho příležitostí, kde lze investovat. A je jich tolik, že je složité se ve všech z nich vyznat. Proto jsme tu my.</p>
+                <p><strong>Díky spolupráci s největšími a nejkvalitnějšími investičními společnostmi vám ušijeme investice na míru.</strong></p>
+                <p>A to jak jednorázové, tak pravidelné. Vše na základě analýzy dosavadních uložených zdrojů.</p>
+                <p>Zajistíme vám větší výnos vložených prostředků a kvalitní servis (wealth management). Své portfolio díky našemu systému můžete sledovat nebo vám jej pošleme v přehledném reportu.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HYPOTÉKY -->
+    <section id="hypoteky" class="hypoteky">
+        <div class="container">
+            <div class="section-header">
+                <h2>🏠 Hypotéky</h2>
+            </div>
+            <div class="hypoteky-text">
+                <p><strong>Do banky už nemusíte</strong></p>
+                <p>Navrhujeme řešení přesně vám na míru podle vašich potřeb, cílů a vaší aktuální situace. Dokážeme rychle reagovat na změny ve vašem životě. Předvídáme rizika, která vás mohou nepříjemně zaskočit.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PŮJČKY -->
+    <section id="pujcky" class="pujcky">
+        <div class="container">
+            <div class="section-header">
+                <h2>💳 Půjčky</h2>
+            </div>
+            <div class="pujcky-text">
+                <p><strong>Splňte si váš sen rychle a jednoduše</strong></p>
+                <p>Někdy nastanou situace, kdy je třeba rychle jednat, přestože zrovna nemáte volné žádné finanční prostředky. Nebo si konečně chcete splnit svůj sen, děj se co děj. Nabídka úvěrů je opravdu obrovská.</p>
+                <p>Někdy jsou úvěry velmi výhodné a někdy jde takřka o lichvu. Produkty bank a dalších finančních institucí dlouhodobě sledujeme, a proto společně vybereme ten z nich, který vám nejvíce sedne.</p>
+                <p>Řeknete nám vaši představu – na co je úvěr určený a v jakém časovém horizontu byste jej chtěli splatit. My nalezneme ten pravý úvěr po vás a vy si tak budete moci rychle splnit svůj sen nebo zažehnat nějaký problém.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZABEZPEČENÍ RODINY -->
+    <section id="zabezpeceni-rodiny" class="zabezpeceni-rodiny">
+        <div class="container">
+            <div class="section-header">
+                <h2>👨‍👩‍👧‍👦 Zabezpečení rodiny</h2>
+            </div>
+            <div class="zabezpeceni-text">
+                <p><strong>Není nic důležitějšího než dobře zajištěná rodina</strong></p>
+                <p>Bezproblémový život, skvělá budoucnost vašich dětí a co nejvíce splněných snů. To je asi to hlavní, na čem tady záleží. Teď jen nabrat ten správný směr.</p>
+                <p>Podrobně zanalyzujeme finanční situaci vaši rodiny. Podíváme se na pravidelné příjmy, vaše povolání, nastavení finančních služeb, kterých vaše rodina využívá. Stanovíme si krátkodobé i dlouhodobé cíle.</p>
+                <p>A na základě toho vybereme ty nejvhodnější finanční produkty pro vaši vysněnou budoucnost.</p>
             </div>
         </div>
     </section>
@@ -460,7 +520,7 @@
     </section>
 
     <!-- PROCES -->
-    <section id="proces" style="background:#fff1f2;">
+    <section id="proces">
         <div class="container">
             <div class="section-header">
                 <h2>Jak spolupráce probíhá</h2>
@@ -469,7 +529,7 @@
                 <div class="step"><strong style="color:var(--accent); font-size:2.5rem;">01</strong><h3>Úvodní schůzka</h3><p>
 Na první schůzce si řekneme, jaké jsou vaše cíle a potřeby.
 Podíváme se na současné nastavení vašich finančních služeb.</p></div>
-                <div class="step"><strong style="color:var(--accent); font-size:2.5rem;">02</strong><h3>Finanční plán</h3><p>Vypracujeme vám finanční plán **na míru**.
+                <div class="step"><strong style="color:var(--accent); font-size:2.5rem;">02</strong><h3>Finanční plán</h3><p>Vypracujeme vám finanční plán na míru.
 Přesně dle vašich představ a možností.</p></div>
                 <div class="step"><strong style="color:var(--accent); font-size:2.5rem;">03</strong><h3>Implementace</h3><p>
 Představíme vám náš návrh řešení rodinných financí.
@@ -488,9 +548,8 @@ jsme vám k dispozici.</p></div>
                     <img src="ja.jpg" alt="Jan Strnka">
                 </div>
                 <div>
-                    <p style="font-size:1.1rem; margin-bottom:1.2rem;">
-                        Jmenuji se Jan Strnka a věnuji se finančnímu poradenství.
-                    </p>
+                    <h3 style="font-size: 1.65rem; color: var(--primary); margin-bottom: 1.4rem;">Ing. Jan Strnka, MBA</h3>
+                  
                     <p style="font-size:1.1rem; margin-bottom:1.2rem;">
                         Pracuji s lidmi, kteří chtějí mít ve svých financích jasno, řád a dlouhodobou jistotu. Finanční poradenství vnímám jako odpovědnost i závazek – pomoci nastavit rozhodnutí tak, aby dávala smysl nejen dnes, ale i v dalších letech života.
                     </p>
@@ -513,11 +572,11 @@ jsme vám k dispozici.</p></div>
                 Drtivou většinu života pracujete pro peníze.<br>
                 Chcete, aby ony pracovaly pro vás?
             </p>
-       
+    
             <a href="mailto:jan.strnka@stelar.cz" class="cta-button" style="margin: 1.5rem 0 2.5rem;">Napište mi</a>
-       
+    
             <p style="font-size:1.35rem; margin:2rem 0;">Ozvu se vám co nejdříve.</p>
-       
+   
             <div style="background:rgba(255,255,255,0.15); padding:3rem; border-radius:20px; margin-top:2rem;">
                 <p><strong>Jan Strnka</strong><br>
                 • Zlín • Ostrava • Brno • online kdekoli</p>
