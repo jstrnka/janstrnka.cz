@@ -6,32 +6,25 @@
     <title>Ing. Jan Strnka, MBA | Finance & Wealth Management</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600&amp;display=swap');
- 
         :root {
             --primary: #9f1239;
             --accent: #e11d48;
             --light: #f8fafc;
             --lighter-red: #fff1f2;
         }
- 
         * { margin: 0; padding: 0; box-sizing: border-box; }
- 
         body {
             font-family: 'Inter', system_ui, sans-serif;
             line-height: 1.65;
             color: #333;
         }
- 
         h1, h2, h3 { font-family: 'Playfair Display', sans-serif; font-weight: 600; }
- 
         .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
- 
         header {
             position: fixed; top: 0; left: 0; right: 0;
             background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
             z-index: 1000; border-bottom: 1px solid #eee;
         }
- 
         nav {
             display: flex;
             justify-content: space-between;
@@ -40,19 +33,16 @@
             max-width: 1280px;
             margin: 0 auto;
         }
- 
         .logo {
             display: flex;
             align-items: center;
             gap: 12px;
         }
- 
         .logo img {
             height: 52px;
             width: auto;
             object-fit: contain;
         }
- 
         .nav-links {
             display: flex;
             gap: 2.6rem;
@@ -60,7 +50,6 @@
             margin: 0;
             padding: 0;
         }
- 
         .nav-links a {
             text-decoration: none;
             color: #333;
@@ -70,7 +59,6 @@
         .nav-links a:hover {
             color: var(--accent);
         }
- 
         /* Hero */
         .hero {
             min-height: 100vh;
@@ -80,7 +68,7 @@
             overflow: hidden;
             text-align: center;
         }
-      
+     
         .hero-video {
             position: absolute;
             inset: 0;
@@ -90,7 +78,7 @@
             opacity: 0.5;
             z-index: 1;
         }
-      
+     
         .hero::before {
             content: "";
             position: absolute;
@@ -98,7 +86,7 @@
             background: linear-gradient(135deg, #9f1239 0%, #e11d48 50%, #f43f5e 100%);
             z-index: 0;
         }
-      
+     
         .hero-content {
             position: relative;
             z-index: 2;
@@ -106,20 +94,17 @@
             margin: 0 auto;
             padding: 0 20px;
         }
- 
         .hero h1 {
             font-size: 4.2rem;
             line-height: 1.15;
             margin-bottom: 1.4rem;
         }
- 
         .hero p {
             font-size: 1.45rem;
             max-width: 680px;
             margin: 0 auto 2.5rem;
             opacity: 0.95;
         }
- 
         .cta-button {
             display: inline-block;
             background: var(--primary);
@@ -132,19 +117,15 @@
             transition: all 0.3s;
             box-shadow: 0 4px 15px rgba(159, 18, 57, 0.3);
         }
- 
         .cta-button:hover {
             transform: translateY(-6px);
             box-shadow: 0 10px 25px rgba(225,29,72,0.4);
             background: var(--accent);
         }
- 
         section { padding: 80px 0; }
- 
         .section-header h2 {
             font-size: 2.9rem; color: var(--primary); margin-bottom: 1rem; text-align: center;
         }
- 
         /* Barevné střídání sekcí */
         .klid-sekce { background: var(--light); }
         .poradenstvi { background: #ffffff; }
@@ -158,7 +139,6 @@
         #proces { background: var(--light); }
         #o-mne { background: #ffffff; }
         #kontakt { background: var(--lighter-red); }
- 
         .klid-h2, .klid-perex, .klid-h3,
         .komplexni-text, .pojisteni-text, .investice-text,
         .hypoteky-text, .pujcky-text, .zabezpeceni-text {
@@ -169,7 +149,6 @@
             color: #444;
             text-align: center;
         }
- 
         /* PORADENSTVÍ */
         .questions {
             display: grid;
@@ -177,17 +156,14 @@
             gap: 2.5rem;
             margin-bottom: 4rem;
         }
- 
         .questions ul { list-style: none; padding: 0; margin: 0; }
         .questions li { padding: 10px 0 10px 32px; position: relative; }
         .questions li:before { content: "✔"; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
- 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
- 
         .service-card {
             background: white;
             border: 1px solid #eee;
@@ -196,16 +172,22 @@
             text-align: center;
             transition: all 0.4s;
         }
- 
         .service-card:hover {
             border-color: var(--accent);
             transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(225,29,72,0.1);
         }
- 
         .icon { font-size: 3.5rem; margin-bottom: 1rem; display: block; text-align: center; }
         .service-card h3 { color: var(--primary); margin-bottom: 1rem; text-align: center; }
- 
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .service-card li {
+            padding: 7px 0;
+            line-height: 1.45;
+        }
         .service-card .card-button {
             display: inline-block;
             margin-top: 1.5rem;
@@ -218,12 +200,10 @@
             font-size: 1.05rem;
             transition: all 0.3s;
         }
- 
         .service-card .card-button:hover {
             background: var(--accent);
             transform: translateY(-3px);
         }
- 
         /* O MNĚ */
         #o-mne .about-grid {
             display: grid;
@@ -231,13 +211,11 @@
             gap: 5rem;
             align-items: center;
         }
- 
         #o-mne img {
             width: 75%;
             border-radius: 16px;
             box-shadow: 0 25px 50px -12px rgba(159,18,57,0.3);
         }
- 
         /* DISCLAIMER */
         .disclaimer {
             font-size: 0.75rem;
@@ -248,7 +226,6 @@
             margin: 0 auto;
             padding: 2rem 20px 2.5rem;
         }
- 
         .disclaimer a { color: var(--accent); text-decoration: underline; }
     </style>
 </head>
@@ -269,7 +246,6 @@
             </nav>
         </div>
     </header>
-
     <!-- HERO -->
     <section class="hero">
         <video class="hero-video" autoplay muted loop playsinline>
@@ -282,45 +258,42 @@
             <a href="#poradenstvi" class="cta-button">Zjistit více</a>
         </div>
     </section>
-
     <!-- KLID PRO RODINU -->
     <section class="klid-sekce">
         <div class="container">
-            
- 	<h3 style="text-align:center; margin-top:1rem; font-size:1.75rem; color:var(--primary);">
+           
+  <h3 style="text-align:center; margin-top:1rem; font-size:1.75rem; color:var(--primary);">
                 Přestaňte obíhat banky.<br>Získejte finanční klid pro celou rodinu.
             </h3>
-
-    
+   
             <p class="klid-perex">
                 Také vás unavuje chodit do banky kvůli každé drobnosti, odmítat neustálé „výhodné“ nabídky a ztrácet čas papírováním?
                 Chcete mít v rodinných financích konečně pořádek a jasný plán, ale doteď jste na to nenašli čas?
             </p>
-    
+   
             <h3 class="klid-h3">Představte si, že by tohle všechno někdo vyřešil za vás</h3>
-    
+   
             <p style="text-align:center; max-width:780px; margin:0 auto 3rem; font-size:1.15rem;">
                 Zjistíme vaše potřeby, cíle a s ohledem na vaši aktuální situaci připravíme řešení šité na míru.
                 Komplexně se postaráme o vaše rodinné finance, abyste vy nemuseli.
             </p>
-    
+   
             <h3 style="text-align:center; margin-top:4rem; font-size:1.75rem; color:var(--primary);">
                 Vy se věnujte své rodině. O zbytek se postaráme my.
             </h3>
         </div>
     </section>
-
     <!-- PORADENSTVÍ -->
     <section id="poradenstvi" class="poradenstvi">
         <div class="container">
             <div class="section-header">
                 <h2>Poradenství</h2>
             </div>
-    
+   
             <div class="poradenstvi-intro">
                 <p>Moje služby zahrnují komplexní poradenství, které vám pomůže dosáhnout vašich cílů a zajistit finanční stabilitu pro vás i vaši rodinu. Spolu najdeme ta nejlepší řešení v oblastech pojištění, investic, úvěrů a spoření. Vše s důrazem na individuální přístup a dlouhodobou spolupráci.</p>
             </div>
-    
+   
             <div class="questions">
                 <ul>
                     <li>Jsou rizika, na která jste pojištěni, skutečně relevantní pro vaši situaci?</li>
@@ -335,7 +308,7 @@
                     <li>Zvažujete refinancování hypotéky, ale nejste si jisti, zda je to pro vás výhodné?</li>
                 </ul>
             </div>
-    
+   
             <div class="services-grid">
                 <div class="service-card">
                     <span class="icon">💰</span>
@@ -376,7 +349,6 @@
             </div>
         </div>
     </section>
-
     <!-- KOMPLEXNÍ SPRÁVA FINANCÍ -->
     <section id="komplexni-sprava" class="komplexni-sprava">
         <div class="container">
@@ -391,7 +363,6 @@
             </div>
         </div>
     </section>
-
     <!-- POJIŠTĚNÍ MAJETKU -->
     <section id="pojisteni-majetku" class="pojisteni-majetku">
         <div class="container">
@@ -406,7 +377,6 @@
             </div>
         </div>
     </section>
-
     <!-- INVESTICE -->
     <section id="investice" class="investice">
         <div class="container">
@@ -423,7 +393,6 @@
             </div>
         </div>
     </section>
-
     <!-- HYPOTÉKY -->
     <section id="hypoteky" class="hypoteky">
         <div class="container">
@@ -436,7 +405,6 @@
             </div>
         </div>
     </section>
-
     <!-- PŮJČKY -->
     <section id="pujcky" class="pujcky">
         <div class="container">
@@ -451,7 +419,6 @@
             </div>
         </div>
     </section>
-
     <!-- ZABEZPEČENÍ RODINY -->
     <section id="zabezpeceni-rodiny" class="zabezpeceni-rodiny">
         <div class="container">
@@ -466,7 +433,6 @@
             </div>
         </div>
     </section>
-
     <!-- SLUŽBY -->
     <section id="sluzby">
         <div class="container">
@@ -518,7 +484,6 @@
             </div>
         </div>
     </section>
-
     <!-- PROCES -->
     <section id="proces">
         <div class="container">
@@ -539,7 +504,6 @@ jsme vám k dispozici.</p></div>
             </div>
         </div>
     </section>
-
     <!-- O MNĚ -->
     <section id="o-mne">
         <div class="container">
@@ -549,7 +513,7 @@ jsme vám k dispozici.</p></div>
                 </div>
                 <div>
                     <h3 style="font-size: 1.65rem; color: var(--primary); margin-bottom: 1.4rem;">Ing. Jan Strnka, MBA</h3>
-                  
+                 
                     <p style="font-size:1.1rem; margin-bottom:1.2rem;">
                         Pracuji s lidmi, kteří chtějí mít ve svých financích jasno, řád a dlouhodobou jistotu. Finanční poradenství vnímám jako odpovědnost i závazek – pomoci nastavit rozhodnutí tak, aby dávala smysl nejen dnes, ale i v dalších letech života.
                     </p>
@@ -564,7 +528,6 @@ jsme vám k dispozici.</p></div>
             </div>
         </div>
     </section>
-
     <!-- KONTAKT -->
     <section id="kontakt" class="contact-section">
         <div class="container" style="text-align:center; max-width:680px; margin:0 auto;">
@@ -572,18 +535,17 @@ jsme vám k dispozici.</p></div>
                 Drtivou většinu života pracujete pro peníze.<br>
                 Chcete, aby ony pracovaly pro vás?
             </p>
-    
-            <a href="mailto:jan.strnka@stelar.cz" class="cta-button" style="margin: 1.5rem 0 2.5rem;">Napište mi</a>
-    
-            <p style="font-size:1.35rem; margin:2rem 0;">Ozvu se vám co nejdříve.</p>
    
+            <a href="mailto:jan.strnka@stelar.cz" class="cta-button" style="margin: 1.5rem 0 2.5rem;">Napište mi</a>
+   
+            <p style="font-size:1.35rem; margin:2rem 0;">Ozvu se vám co nejdříve.</p>
+  
             <div style="background:rgba(255,255,255,0.15); padding:3rem; border-radius:20px; margin-top:2rem;">
                 <p><strong>Jan Strnka</strong><br>
                 • Zlín • Ostrava • Brno • online kdekoli</p>
             </div>
         </div>
     </section>
-
     <!-- DISCLAIMER -->
     <div class="disclaimer">
         <p>Zprostředkovávám pojištění, úvěry, doplňkové penzijní spoření a investice jako vázaný zástupce společnosti Stelar Advisory, a. s., která je vedena v registru ČNB jako samostatný a investiční zprostředkovatel IČO: 25381512. I já, Jan Strnka, jsem registrován v registru ČNB, jako vázaný zástupce, a to pod IČO: 23564954.</p>
@@ -598,7 +560,6 @@ jsme vám k dispozici.</p></div>
             <a href="http://www.cnb.cz/cnb/jerrs" target="_blank">www.cnb.cz/cnb/jerrs</a>, kde také najdete aktuální informace a podrobnosti o registraci a rozsahu oprávnění.
         </p>
     </div>
-
     <footer>
         <div class="container">
             <p>© 2026 Ing. Jan Strnka, MBA, IČO: 23564954, vázaný zástupce Stelar Advisory, a.s., IČ: 25381512</p>
