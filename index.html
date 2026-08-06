@@ -51,6 +51,7 @@
             padding: 18px 42px; border-radius: 50px; font-weight: 600;
             text-decoration: none; font-size: 1.2rem; transition: all 0.3s;
             box-shadow: 0 4px 15px rgba(159, 18, 57, 0.3); border: none; cursor: pointer;
+            font-family: inherit;
         }
         .cta-button:hover {
             transform: translateY(-6px);
@@ -146,23 +147,45 @@
         .questions ul { list-style: none; padding: 0; margin: 0; }
         .questions li { padding: 10px 0 10px 32px; position: relative; }
         .questions li:before { content: "✔"; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            align-items: stretch;
+        }
         .service-card {
-            background: white; border: 1px solid #eee; border-radius: 16px;
-            padding: 2.5rem 2rem; text-align: center; transition: all 0.4s;
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.4s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         .service-card:hover {
-            border-color: var(--accent); transform: translateY(-8px);
+            border-color: var(--accent);
+            transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(225,29,72,0.1);
         }
         .icon { font-size: 3.5rem; margin-bottom: 1rem; display: block; text-align: center; }
         .service-card h3 { color: var(--primary); margin-bottom: 1rem; text-align: center; }
+        .service-card p { flex: 1; }
         .service-card ul { list-style: none; padding: 0; margin: 0; }
         .service-card li { padding: 7px 0; line-height: 1.45; }
         .service-card .card-button {
-            display: inline-block; margin-top: 1.5rem; background: var(--primary); color: white;
-            padding: 12px 28px; border-radius: 50px; font-weight: 600; text-decoration: none;
-            font-size: 1.05rem; transition: all 0.3s;
+            display: inline-block;
+            margin-top: 1.5rem;
+            background: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            align-self: center;
         }
         .service-card .card-button:hover { background: var(--accent); transform: translateY(-3px); }
         #o-mne .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
@@ -173,7 +196,15 @@
         }
         .disclaimer a { color: var(--accent); text-decoration: underline; }
 
-        /* Kontaktní formulář */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 1.8rem;
+            align-items: start;
+            max-width: 960px;
+            margin: 0 auto 1rem;
+            text-align: left;
+        }
         .contact-form {
             text-align: left;
             background: #fff;
@@ -181,8 +212,8 @@
             border-radius: 20px;
             padding: 2.2rem 2rem;
             box-shadow: 0 10px 40px rgba(159,18,57,0.06);
-            margin: 0 auto 1rem;
-            max-width: 640px;
+            margin: 0;
+            max-width: none;
         }
         .contact-form .form-row {
             display: grid;
@@ -209,7 +240,121 @@
         .contact-form .form-note {
             font-size: 0.85rem; color: #777; text-align: center; margin-top: 1.2rem; line-height: 1.5;
         }
+        .contact-side {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .phone-contact {
+            text-align: center;
+            margin: 0;
+            max-width: none;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 20px;
+            padding: 1.6rem 1.4rem;
+            box-shadow: 0 8px 30px rgba(159,18,57,0.06);
+        }
+        .phone-label {
+            font-size: 0.95rem;
+            color: #777;
+            margin-bottom: 0.5rem;
+        }
+        .phone-number {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-family: 'Playfair Display', sans-serif;
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            padding: 0.65rem 1.4rem;
+            background: #fff;
+            border: 1.5px solid rgba(159, 18, 57, 0.2);
+            border-radius: 50px;
+            transition: all 0.25s;
+            box-shadow: 0 4px 16px rgba(159, 18, 57, 0.08);
+        }
+        .phone-number::before {
+            content: "📞";
+            font-size: 1.1rem;
+        }
+        .phone-number:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(159, 18, 57, 0.2);
+        }
+        .meeting-bubble {
+            background: linear-gradient(145deg, #fff 0%, #fce8ec 100%);
+            border: 1px solid rgba(159, 18, 57, 0.12);
+            border-radius: 24px;
+            padding: 1.8rem 1.4rem 1.6rem;
+            max-width: none;
+            margin: 0;
+            box-shadow: 0 12px 40px rgba(159, 18, 57, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .meeting-bubble::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+        .meeting-bubble h4 {
+            font-family: 'Playfair Display', sans-serif;
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 1.1rem;
+            font-weight: 600;
+        }
+        .meeting-bubble h4 span {
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+        .meeting-places {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .meeting-places span {
+            display: inline-block;
+            background: #fff;
+            color: #444;
+            border: 1px solid rgba(159, 18, 57, 0.15);
+            border-radius: 50px;
+            padding: 0.4rem 0.95rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.25s;
+        }
+        .meeting-places span:hover {
+            border-color: var(--accent);
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(159, 18, 57, 0.12);
+        }
+        .meeting-places span.online {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+        .meeting-places span.online:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
 
+        @media (max-width: 800px) {
+            .contact-layout { grid-template-columns: 1fr; }
+        }
         @media (max-width: 600px) {
             .calculator-box, .loan-compare-box, .hypo-compare-box { padding: 1.5rem 1.2rem; }
             .calc-chart-wrap { height: 220px; }
@@ -314,7 +459,6 @@
             <p class="detail-text">V dnešní době existuje mnoho příležitostí, kde lze investovat. A je jich tolik, že je složité se ve všech z nich vyznat. Proto jsme tu my.</p>
             <p class="detail-text"><strong>Díky spolupráci s největšími a nejkvalitnějšími investičními společnostmi vám ušijeme investice na míru.</strong></p>
             <p class="detail-text">A to jak jednorázové, tak pravidelné. Vše na základě analýzy dosavadních uložených zdrojů.</p>
-            <p class="detail-text">Zajistíme vám větší výnos vložených prostředků a kvalitní servis (wealth management). Své portfolio díky našemu systému můžete sledovat nebo vám jej pošleme v přehledném reportu.</p>
 
             <div class="calculator-box">
                 <h3>Kalkulačka složeného úročení</h3>
@@ -495,52 +639,67 @@
         </div>
     </section>
 
-    <!-- KONTAKT + FORMULÁŘ -->
     <section id="kontakt" class="contact-section">
-        <div class="container" style="text-align:center; max-width:720px; margin:0 auto;">
+        <div class="container" style="text-align:center; max-width:1100px; margin:0 auto;">
             <p style="font-size:1.8rem; margin-bottom:1.8rem; line-height:1.3;">
                 Drtivou většinu života pracujete pro peníze.<br>
                 Chcete, aby ony pracovaly pro vás?
             </p>
             <p style="font-size:1.15rem; color:#555; margin-bottom:2.5rem;">
-                Vyplňte formulář a stručně napište, co řešíte. Ozvu se vám co nejdříve.
+                Vyplňte formulář a stručně napište, co vás zajímá. Ozvu se vám co nejdříve.
             </p>
 
-            <form class="contact-form" action="https://formsubmit.co/jan.strnka@stelar.cz" method="POST">
-                <input type="hidden" name="_subject" value="Nová zpráva z webu – Jan Strnka">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
-                <input type="text" name="_honey" style="display:none">
+            <div class="contact-layout">
+                <form class="contact-form" action="https://formsubmit.co/jan.strnka@stelar.cz" method="POST">
+                    <input type="hidden" name="_subject" value="Nová zpráva z webu – Jan Strnka">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="text" name="_honey" style="display:none">
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="cf-name">Jméno a příjmení *</label>
-                        <input type="text" id="cf-name" name="jmeno" required placeholder="Jan Novák">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cf-name">Jméno a příjmení *</label>
+                            <input type="text" id="cf-name" name="jmeno" required placeholder="Jan Novák">
+                        </div>
+                        <div class="form-group">
+                            <label for="cf-email">E-mail *</label>
+                            <input type="email" id="cf-email" name="email" required placeholder="jan.novak@email.cz">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="cf-email">E-mail *</label>
-                        <input type="email" id="cf-email" name="email" required placeholder="jan.novak@email.cz">
+                        <label for="cf-phone">Telefon *</label>
+                        <input type="tel" id="cf-phone" name="telefon" required placeholder="+420 777 123 456">
+                    </div>
+                    <div class="form-group">
+                        <label for="cf-message">Zpráva *</label>
+                        <textarea id="cf-message" name="zprava" required rows="5" placeholder="Stručně napište, co vás zajímá…"></textarea>
+                    </div>
+                    <button type="submit" class="cta-button form-submit">Odeslat zprávu</button>
+                    <p class="form-note">
+                        Konzultace je nezávazná. Vaše údaje používám pouze pro zpětné kontaktování a nikdy je nepředávám třetím stranám.
+                    </p>
+                </form>
+
+                <div class="contact-side">
+                    <div class="phone-contact">
+                        <p class="phone-label">Nebo mi rovnou zavolejte</p>
+                        <a href="tel:+420739179167" class="phone-number">739 179 167</a>
+                    </div>
+
+                    <div class="meeting-bubble">
+                        <h4><span>📍</span>Kde si můžeme dát schůzku?</h4>
+                        <div class="meeting-places">
+                            <span>Zlín</span>
+                            <span>Ostrava</span>
+                            <span>Brno</span>
+                            <span>Brumov-Bylnice</span>
+                            <span class="online">online kdekoli</span>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="cf-phone">Telefon</label>
-                    <input type="tel" id="cf-phone" name="telefon" placeholder="+420 777 123 456">
-                </div>
-                <div class="form-group">
-                    <label for="cf-message">Zpráva *</label>
-                    <textarea id="cf-message" name="zprava" required rows="5" placeholder="Stručně napište, co řešíte…"></textarea>
-                </div>
-                <button type="submit" class="cta-button form-submit">Odeslat zprávu</button>
-                <p class="form-note">
-                    Konzultace je nezávazná. Vaše údaje používám pouze pro zpětné kontaktování a nikdy je nepředávám třetím stranám.
-                </p>
-            </form>
-
-            <p style="font-size:1.35rem; margin:2.5rem 0 1rem;">Ozvu se vám co nejdříve.</p>
-            <div style="background:rgba(255,255,255,0.35); padding:2rem; border-radius:20px;">
-                <p><strong>Jan Strnka</strong><br>
-                • Zlín • Ostrava • Brno • online kdekoli</p>
             </div>
+
+            <p style="font-size:1.35rem; margin:2.5rem 0 0;">Ozvu se vám co nejdříve.</p>
         </div>
     </section>
 
@@ -568,7 +727,6 @@
     (function() {
         const fmt = n => new Intl.NumberFormat('cs-CZ', { style: 'currency', currency: 'CZK', maximumFractionDigits: 0 }).format(n);
 
-        // INVESTIČNÍ KALKULAČKA
         let chart = null;
         function calculateInvest() {
             const initial = parseFloat(document.getElementById('calc-initial').value) || 0;
@@ -621,7 +779,6 @@
         ['calc-initial','calc-monthly','calc-rate','calc-years'].forEach(id => document.getElementById(id).addEventListener('input', calculateInvest));
         calculateInvest();
 
-        // SROVNÁNÍ ÚVĚRŮ
         function calcLoan(amount, rate, months, fee) {
             if (amount <= 0 || months <= 0) return { payment: 0, total: fee, interest: 0 };
             const r = rate / 100 / 12;
@@ -664,7 +821,6 @@
         ['loan-a-amount','loan-a-rate','loan-a-months','loan-a-fee','loan-b-amount','loan-b-rate','loan-b-months','loan-b-fee'].forEach(id => document.getElementById(id).addEventListener('input', calculateLoans));
         calculateLoans();
 
-        // HYPOTÉKA VS INVESTOVÁNÍ
         let hypoChart = null;
         function calculateHypo() {
             const P0 = parseFloat(document.getElementById('hypo-amount').value) || 0;
