@@ -58,6 +58,7 @@
             box-shadow: 0 10px 25px rgba(225,29,72,0.4);
             background: var(--accent);
         }
+        .section-cta { text-align: center; margin-top: 2.8rem; }
         section { padding: 80px 0; }
         .section-header h2 { font-size: 2.9rem; color: var(--primary); margin-bottom: 1.5rem; text-align: center; }
         .klid-sekce { background: var(--light); text-align: center; }
@@ -169,11 +170,26 @@
             display: flex;
             flex-direction: column;
             height: 100%;
+            position: relative;
         }
         .service-card:hover {
             border-color: var(--accent);
             transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(225,29,72,0.1);
+        }
+        .service-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: var(--primary);
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.7rem;
+            border-radius: 50px;
+            line-height: 1;
         }
         .icon { font-size: 3.5rem; margin-bottom: 1rem; display: block; text-align: center; }
         .service-card h3 { color: var(--primary); margin-bottom: 1rem; text-align: center; }
@@ -453,6 +469,20 @@
                 <div class="service-card"><span class="icon">🏠</span><h3>Zařizuji nové bydlení</h3><p>Hypoteční trh je složitý a nemám čas jej studovat. Poraďte mi.</p><a href="#hypoteky" class="card-button">Chci vědět víc</a></div>
                 <div class="service-card"><span class="icon">💳</span><h3>Chci si půjčit</h3><p>Pro své plány nemám dostatek prostředků. Chci poradit, která půjčka mi bude vyhovovat.</p><a href="#pujcky" class="card-button">Chci vědět víc</a></div>
                 <div class="service-card"><span class="icon">👨‍👩‍👧‍👦</span><h3>Potřebuji zabezpečit rodinu</h3><p>Rodina je základ. Nechci nechat nic náhodě, proto do ní investuji.</p><a href="#zabezpeceni-rodiny" class="card-button">Chci vědět víc</a></div>
+                <div class="service-card">
+                    <span class="service-badge">Připravujeme</span>
+                    <span class="icon">🔥</span>
+                    <h3>FIRE – Finanční nezávislost</h3>
+                    <p>Nechci se spoléhat na stát, chci do důchodu dřív a vědět kolik peněz budu mít.</p>
+                    <a href="#" class="card-button" onclick="return false;">Chci vědět víc</a>
+                </div>
+                <div class="service-card">
+                    <span class="service-badge">Připravujeme</span>
+                    <span class="icon">🏢</span>
+                    <h3>Chci pronajímat</h3>
+                    <p>Koupil jsem nebo zdědil nemovitost a chci poradit jak ji bezpečně pronajmout.</p>
+                    <a href="#" class="card-button" onclick="return false;">Chci vědět víc</a>
+                </div>
             </div>
         </div>
     </section>
@@ -464,6 +494,9 @@
             <p class="detail-text"><strong>Proto jsme tu my.</strong> Vše za vás zařídíme a ušetříme vám čas, který můžete investovat lépe. Třeba do své rodiny nebo do svých zájmů.</p>
             <p class="detail-text">Každodenně sledujeme, co se ve světě financí děje a jak se jednotlivé produkty mění. Zajistíme vám například nejvýhodnější hypotéku. Poradíme, jak nejlépe investovat nebo po kterých produktech se podívat, když třeba začínáte podnikat nebo si potřebujete půjčit.</p>
             <p class="detail-text">Nastavíme vaše finanční produkty komplexně tak, aby se vzájemně doplňovaly a vy jste mohli usínat bez starostí.</p>
+            <div class="section-cta">
+                <a href="#kontakt" class="cta-button">Domluvit si schůzku</a>
+            </div>
         </div>
     </section>
 
@@ -474,6 +507,9 @@
             <p class="detail-text">Nikdy nevíte, co vás může zaskočit. Proto je lepší se na to co nejlépe připravit.</p>
             <p class="detail-text">Existuje mnoho zajímavých produktů, s kterými bude vypořádání se s jakoukoli pohromou jednodušší. Společně vybereme vhodný produkt. Do pojišťovny už nebudete muset chodit.</p>
             <p class="detail-text">Rádi s vámi nastavíme vedle pojištění nemovitého i movitého majetku i jiné oblasti, jako je pojištění občanské odpovědnosti nebo odpovědnosti v zaměstnání.</p>
+            <div class="section-cta">
+                <a href="#kontakt" class="cta-button">Domluvit si schůzku</a>
+            </div>
         </div>
     </section>
 
@@ -509,6 +545,9 @@
                     </table>
                 </div>
                 <p class="calc-note">Výpočet předpokládá měsíční připisování výnosů a pravidelné měsíční vklady na konci měsíce. Skutečné výsledky se mohou lišit. Minulé výnosy nejsou zárukou budoucích.</p>
+            </div>
+            <div class="section-cta">
+                <a href="#kontakt" class="cta-button">Domluvit si schůzku</a>
             </div>
         </div>
     </section>
@@ -565,6 +604,9 @@
                 </div>
                 <p class="calc-note">Výpočet používá anuitní splácení. LTV = výše hypotéky ÷ cena nemovitosti. Orientační propočet – skutečná splátka závisí na bonitě, fixaci, pojištění a poplatcích konkrétní banky.</p>
             </div>
+            <div class="section-cta">
+                <a href="#kontakt" class="cta-button">Domluvit si schůzku</a>
+            </div>
         </div>
     </section>
 
@@ -612,6 +654,9 @@
                 </div>
                 <p class="calc-note">Výpočet používá anuitní splácení. Skutečné podmínky se mohou lišit podle bonity, pojištění a poplatků konkrétního poskytovatele.</p>
             </div>
+            <div class="section-cta">
+                <a href="#kontakt" class="cta-button">Domluvit si schůzku</a>
+            </div>
         </div>
     </section>
 
@@ -622,6 +667,9 @@
             <p class="detail-text">Bezproblémový život, skvělá budoucnost vašich dětí a co nejvíce splněných snů. To je asi to hlavní, na čem tady záleží. Teď jen nabrat ten správný směr.</p>
             <p class="detail-text">Podrobně zanalyzujeme finanční situaci vaši rodiny. Podíváme se na pravidelné příjmy, vaše povolání, nastavení finančních služeb, kterých vaše rodina využívá. Stanovíme si krátkodobé i dlouhodobé cíle.</p>
             <p class="detail-text">A na základě toho vybereme ty nejvhodnější finanční produkty pro vaši vysněnou budoucnost.</p>
+            <div class="section-cta">
+                <a href="#kontakt" class="cta-button">Domluvit si schůzku</a>
+            </div>
         </div>
     </section>
 
@@ -645,6 +693,9 @@
                 <div class="step"><strong style="color:var(--accent); font-size:2.5rem;">02</strong><h3>Finanční plán</h3><p>Vypracujeme vám finanční plán na míru. Přesně dle vašich představ a možností.</p></div>
                 <div class="step"><strong style="color:var(--accent); font-size:2.5rem;">03</strong><h3>Implementace</h3><p>Představíme vám náš návrh řešení rodinných financí. Všechno společně nastavíme.</p></div>
                 <div class="step"><strong style="color:var(--accent); font-size:2.5rem;">04</strong><h3>Servis</h3><p>Kdykoliv budete potřebovat poradit nebo něco změnit, jsme vám k dispozici.</p></div>
+            </div>
+            <div class="section-cta">
+                <a href="#kontakt" class="cta-button">Domluvit si schůzku</a>
             </div>
         </div>
     </section>
