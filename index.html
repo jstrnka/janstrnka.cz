@@ -99,6 +99,12 @@
             font-size: 1.05rem; font-family: inherit; transition: border-color 0.2s;
         }
         .calc-field input:focus { outline: none; border-color: var(--accent); }
+        .calc-field .ltv-badge {
+            display: inline-block; margin-top: 0.45rem; font-size: 0.85rem; font-weight: 600;
+            color: var(--primary); background: var(--lighter-red); padding: 0.25rem 0.7rem; border-radius: 50px;
+        }
+        .calc-field .ltv-badge.warn { color: #b45309; background: #fef3c7; }
+        .calc-field .ltv-badge.danger { color: #dc2626; background: #fef2f2; }
         .calc-results { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0 2rem; }
         .calc-result-card { background: var(--lighter-red); border-radius: 14px; padding: 1.3rem 1rem; text-align: center; }
         .calc-result-card .label { font-size: 0.85rem; color: #666; margin-bottom: 0.35rem; }
@@ -122,18 +128,18 @@
         .calc-table tr:nth-child(even) { background: #fafafa; }
         .calc-note { font-size: 0.8rem; color: #888; text-align: center; margin-top: 1.5rem; line-height: 1.5; }
 
-        .loan-summary, .hypo-summary {
+        .loan-summary {
             text-align: center; padding: 1.8rem 1.5rem; border-radius: 16px; margin: 0 0 2rem; transition: background 0.3s;
         }
-        .loan-summary.savings, .hypo-summary.savings { background: #ecfdf5; border: 1px solid #a7f3d0; }
-        .loan-summary.costlier, .hypo-summary.costlier { background: #fef2f2; border: 1px solid #fecaca; }
-        .loan-summary.equal, .hypo-summary.equal { background: #f8fafc; border: 1px solid #e2e8f0; }
-        .loan-summary .verdict, .hypo-summary .verdict { font-family: 'Playfair Display', sans-serif; font-size: 1.6rem; font-weight: 600; margin-bottom: 0.4rem; }
-        .loan-summary.savings .verdict, .hypo-summary.savings .verdict { color: #059669; }
-        .loan-summary.costlier .verdict, .hypo-summary.costlier .verdict { color: #dc2626; }
-        .loan-summary.equal .verdict, .hypo-summary.equal .verdict { color: #64748b; }
-        .loan-summary .amount, .hypo-summary .amount { font-size: 1.9rem; font-weight: 700; color: #1e293b; }
-        .loan-summary .detail, .hypo-summary .detail { font-size: 0.95rem; color: #64748b; margin-top: 0.5rem; }
+        .loan-summary.savings { background: #ecfdf5; border: 1px solid #a7f3d0; }
+        .loan-summary.costlier { background: #fef2f2; border: 1px solid #fecaca; }
+        .loan-summary.equal { background: #f8fafc; border: 1px solid #e2e8f0; }
+        .loan-summary .verdict { font-family: 'Playfair Display', sans-serif; font-size: 1.6rem; font-weight: 600; margin-bottom: 0.4rem; }
+        .loan-summary.savings .verdict { color: #059669; }
+        .loan-summary.costlier .verdict { color: #dc2626; }
+        .loan-summary.equal .verdict { color: #64748b; }
+        .loan-summary .amount { font-size: 1.9rem; font-weight: 700; color: #1e293b; }
+        .loan-summary .detail { font-size: 0.95rem; color: #64748b; margin-top: 0.5rem; }
         .loan-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
         .loan-col { background: #fafafa; border-radius: 14px; padding: 1.5rem 1.3rem; border: 1px solid #eee; }
         .loan-col h4 { text-align: center; color: var(--primary); font-size: 1.15rem; margin-bottom: 1.2rem; font-family: 'Playfair Display', sans-serif; }
@@ -233,6 +239,26 @@
         .contact-form input:focus,
         .contact-form textarea:focus { outline: none; border-color: var(--accent); }
         .contact-form textarea { resize: vertical; min-height: 120px; }
+        .contact-form input[type="file"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px dashed #ccc;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            background: #fafafa;
+            color: #555;
+            cursor: pointer;
+        }
+        .contact-form input[type="file"]:hover {
+            border-color: var(--accent);
+            background: #fff;
+        }
+        .form-file-note {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 0.4rem;
+        }
         .contact-form .form-submit {
             width: 100%; border: none; cursor: pointer; margin-top: 0.5rem; text-align: center;
             font-family: inherit;
@@ -494,51 +520,50 @@
             <p class="detail-text">Navrhujeme řešení přesně vám na míru podle vašich potřeb, cílů a vaší aktuální situace. Dokážeme rychle reagovat na změny ve vašem životě. Předvídáme rizika, která vás mohou nepříjemně zaskočit.</p>
 
             <div class="hypo-compare-box">
-                <h3>Hypotéka vs. hypotéka s investováním</h3>
-                <p class="calc-disclaimer">Ilustrativní modelace. Porovnává dvě strategie se stejným měsíčním výdajem. Nejde o slib výnosů.</p>
+                <h3>Hypoteční kalkulačka</h3>
+                <p class="calc-disclaimer">Ilustrativní modelace anuitní splátky. Nejde o nabídku banky ani závazný propočet.</p>
                 <div class="calc-grid">
-                    <div class="calc-field"><label for="hypo-amount">Výše hypotéky (Kč)</label><input type="number" id="hypo-amount" value="4000000" min="0" step="50000"></div>
-                    <div class="calc-field"><label for="hypo-rate">Úroková sazba (% p.a.)</label><input type="number" id="hypo-rate" value="4.9" min="0" max="15" step="0.1"></div>
-                    <div class="calc-field"><label for="hypo-years">Splatnost (roky)</label><input type="number" id="hypo-years" value="30" min="1" max="40" step="1"></div>
-                    <div class="calc-field"><label for="hypo-extra">Částka navíc měsíčně (Kč)</label><input type="number" id="hypo-extra" value="5000" min="0" step="500"></div>
-                    <div class="calc-field"><label for="hypo-invest-rate">Výnos investice (% p.a.)</label><input type="number" id="hypo-invest-rate" value="7" min="0" max="15" step="0.1"></div>
-                </div>
-                <div class="hypo-summary" id="hypo-summary">
-                    <div class="verdict" id="hypo-verdict">Zadejte parametry</div>
-                    <div class="amount" id="hypo-diff">–</div>
-                    <div class="detail" id="hypo-detail"></div>
-                </div>
-                <div class="loan-cols">
-                    <div class="loan-col">
-                        <h4>Klasická hypotéka<br><small style="font-weight:400;font-size:0.85rem;color:#666">(navíc jde na splátku)</small></h4>
-                        <div class="mini-results">
-                            <div class="mini-row"><span>Měsíční splátka</span><strong id="hypo-a-payment">–</strong></div>
-                            <div class="mini-row"><span>Doplaceno za</span><strong id="hypo-a-years">–</strong></div>
-                            <div class="mini-row"><span>Celkem úroky</span><strong id="hypo-a-interest">–</strong></div>
-                            <div class="mini-row"><span>Čistý majetek na konci</span><strong id="hypo-a-net">–</strong></div>
-                        </div>
+                    <div class="calc-field">
+                        <label for="hypo-price">Cena nemovitosti (Kč)</label>
+                        <input type="number" id="hypo-price" value="5000000" min="0" step="50000">
                     </div>
-                    <div class="loan-col">
-                        <h4>Hypotéka + investování<br><small style="font-weight:400;font-size:0.85rem;color:#666">(navíc se investuje)</small></h4>
-                        <div class="mini-results">
-                            <div class="mini-row"><span>Měsíční splátka</span><strong id="hypo-b-payment">–</strong></div>
-                            <div class="mini-row"><span>Portfolio na konci</span><strong id="hypo-b-portfolio">–</strong></div>
-                            <div class="mini-row"><span>Celkem úroky</span><strong id="hypo-b-interest">–</strong></div>
-                            <div class="mini-row"><span>Čistý majetek na konci</span><strong id="hypo-b-net">–</strong></div>
-                        </div>
+                    <div class="calc-field">
+                        <label for="hypo-amount">Výše hypotéky (Kč)</label>
+                        <input type="number" id="hypo-amount" value="4000000" min="0" step="50000">
+                        <span class="ltv-badge" id="hypo-ltv">LTV –</span>
                     </div>
+                    <div class="calc-field">
+                        <label for="hypo-rate">Úroková sazba (% p.a.)</label>
+                        <input type="number" id="hypo-rate" value="4.9" min="0" max="15" step="0.1">
+                    </div>
+                    <div class="calc-field">
+                        <label for="hypo-years">Splatnost (roky)</label>
+                        <input type="number" id="hypo-years" value="30" min="1" max="40" step="1">
+                    </div>
+                </div>
+                <div class="calc-results">
+                    <div class="calc-result-card"><div class="label">Měsíční splátka</div><div class="value" id="hypo-payment">–</div></div>
+                    <div class="calc-result-card"><div class="label">Celkem zaplatíte</div><div class="value" id="hypo-total">–</div></div>
+                    <div class="calc-result-card"><div class="label">Z toho úroky</div><div class="value" id="hypo-interest">–</div></div>
+                    <div class="calc-result-card"><div class="label">Vlastní zdroje</div><div class="value" id="hypo-equity">–</div></div>
                 </div>
                 <div class="calc-chart-wrap"><canvas id="hypoChart"></canvas></div>
                 <button type="button" class="calc-toggle-btn" id="hypo-toggle-btn">Zobrazit roční přehled</button>
                 <div class="calc-table-wrap" id="hypo-table-wrap">
                     <table class="calc-table">
                         <thead>
-                            <tr><th>Rok</th><th>A: Zůstatek</th><th>A: Majetek</th><th>B: Zůstatek</th><th>B: Portfolio</th><th>B: Majetek</th></tr>
+                            <tr>
+                                <th>Rok</th>
+                                <th>Zůstatek</th>
+                                <th>Zaplacená jistina</th>
+                                <th>Zaplacené úroky</th>
+                                <th>Splátky celkem</th>
+                            </tr>
                         </thead>
                         <tbody id="hypo-table-body"></tbody>
                     </table>
                 </div>
-                <p class="calc-note">Varianta A: celá částka navíc snižuje jistinu hypotéky. Varianta B: standardní anuita + investování rozdílu. Čistý majetek = (původní výše hypotéky − zbývající dluh) + hodnota portfolia. Modelace je orientační.</p>
+                <p class="calc-note">Výpočet používá anuitní splácení. LTV = výše hypotéky ÷ cena nemovitosti. Orientační propočet – skutečná splátka závisí na bonitě, fixaci, pojištění a poplatcích konkrétní banky.</p>
             </div>
         </div>
     </section>
@@ -650,7 +675,7 @@
             </p>
 
             <div class="contact-layout">
-                <form class="contact-form" action="https://formsubmit.co/jan.strnka@stelar.cz" method="POST">
+                <form class="contact-form" action="https://formsubmit.co/jan.strnka@stelar.cz" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="_subject" value="Nová zpráva z webu – Jan Strnka">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
@@ -673,6 +698,11 @@
                     <div class="form-group">
                         <label for="cf-message">Zpráva *</label>
                         <textarea id="cf-message" name="zprava" required rows="5" placeholder="Stručně napište, co vás zajímá…"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="cf-file">Přiložit soubor (volitelné)</label>
+                        <input type="file" id="cf-file" name="attachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.xls,.xlsx,.zip">
+                        <p class="form-file-note">Maximální velikost souboru je 10 MB.</p>
                     </div>
                     <button type="submit" class="cta-button form-submit">Odeslat zprávu</button>
                     <p class="form-note">
@@ -698,8 +728,6 @@
                     </div>
                 </div>
             </div>
-
-            <p style="font-size:1.35rem; margin:2.5rem 0 0;">Ozvu se vám co nejdříve.</p>
         </div>
     </section>
 
@@ -823,87 +851,66 @@
 
         let hypoChart = null;
         function calculateHypo() {
+            const price = parseFloat(document.getElementById('hypo-price').value) || 0;
             const P0 = parseFloat(document.getElementById('hypo-amount').value) || 0;
             const annualRate = parseFloat(document.getElementById('hypo-rate').value) || 0;
             const years = parseInt(document.getElementById('hypo-years').value) || 1;
-            const extra = parseFloat(document.getElementById('hypo-extra').value) || 0;
-            const invRate = parseFloat(document.getElementById('hypo-invest-rate').value) || 0;
             const r = annualRate / 100 / 12;
             const n = years * 12;
-            const invMonthly = invRate / 100 / 12;
-            const basePayment = r === 0 ? P0 / n : P0 * r * Math.pow(1+r, n) / (Math.pow(1+r, n) - 1);
 
-            let balA = P0, interestA = 0, monthsA = 0;
-            const yearA = [];
-            while (balA > 0.5 && monthsA < n * 2) {
-                const interest = balA * r;
-                interestA += interest;
-                const principalPay = Math.min(basePayment + extra - interest, balA);
-                balA -= principalPay;
-                monthsA++;
-                if (monthsA % 12 === 0 || balA <= 0.5) {
-                    const y = Math.ceil(monthsA / 12);
-                    yearA[y] = { balance: Math.max(0, balA), equity: P0 - Math.max(0, balA) };
-                }
-            }
-            if (balA < 0) balA = 0;
-
-            let balB = P0, interestB = 0, portfolio = 0;
-            const yearB = [];
-            for (let m = 1; m <= n; m++) {
-                const interest = balB * r;
-                interestB += interest;
-                const principalPay = Math.min(basePayment - interest, balB);
-                balB = Math.max(0, balB - principalPay);
-                portfolio = portfolio * (1 + invMonthly) + extra;
-                if (m % 12 === 0) {
-                    const y = m / 12;
-                    yearB[y] = { balance: balB, portfolio, equity: P0 - balB + portfolio };
-                }
-            }
-
-            const netA = P0;
-            const netB = P0 - balB + portfolio;
-            const yearsA = (monthsA / 12).toFixed(1);
-
-            document.getElementById('hypo-a-payment').textContent = fmt(basePayment + extra);
-            document.getElementById('hypo-a-years').textContent = yearsA + ' let';
-            document.getElementById('hypo-a-interest').textContent = fmt(interestA);
-            document.getElementById('hypo-a-net').textContent = fmt(netA);
-            document.getElementById('hypo-b-payment').textContent = fmt(basePayment);
-            document.getElementById('hypo-b-portfolio').textContent = fmt(portfolio);
-            document.getElementById('hypo-b-interest').textContent = fmt(interestB);
-            document.getElementById('hypo-b-net').textContent = fmt(netB);
-
-            const diff = netB - netA;
-            const summary = document.getElementById('hypo-summary');
-            summary.classList.remove('savings','costlier','equal');
-            if (Math.abs(diff) < 1000) {
-                summary.classList.add('equal');
-                document.getElementById('hypo-verdict').textContent = 'Obě strategie jsou srovnatelné';
-                document.getElementById('hypo-diff').textContent = '≈ 0 Kč';
-                document.getElementById('hypo-detail').textContent = 'Čistý majetek vychází podobně.';
-            } else if (diff > 0) {
-                summary.classList.add('savings');
-                document.getElementById('hypo-verdict').textContent = 'Vyplatí se hypotéka + investování';
-                document.getElementById('hypo-diff').textContent = 'Výhoda ' + fmt(diff);
-                document.getElementById('hypo-detail').textContent = 'Po ' + years + ' letech máte o ' + fmt(diff) + ' vyšší čistý majetek.';
+            const ltvEl = document.getElementById('hypo-ltv');
+            if (price > 0 && P0 > 0) {
+                const ltv = (P0 / price) * 100;
+                ltvEl.textContent = 'LTV ' + ltv.toFixed(1) + ' %';
+                ltvEl.classList.remove('warn', 'danger');
+                if (ltv > 90) ltvEl.classList.add('danger');
+                else if (ltv > 80) ltvEl.classList.add('warn');
             } else {
-                summary.classList.add('costlier');
-                document.getElementById('hypo-verdict').textContent = 'Vyplatí se klasická hypotéka';
-                document.getElementById('hypo-diff').textContent = 'Výhoda ' + fmt(Math.abs(diff));
-                document.getElementById('hypo-detail').textContent = 'Rychlejší splácení vychází lépe o ' + fmt(Math.abs(diff)) + '.';
+                ltvEl.textContent = 'LTV –';
+                ltvEl.classList.remove('warn', 'danger');
             }
 
-            const labels = [], dataA = [], dataB = [];
+            const payment = (P0 <= 0 || n <= 0) ? 0
+                : (r === 0 ? P0 / n : P0 * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1));
+            const totalPaid = payment * n;
+            const totalInterest = totalPaid - P0;
+            const ownEquity = Math.max(0, price - P0);
+
+            document.getElementById('hypo-payment').textContent = fmt(payment);
+            document.getElementById('hypo-total').textContent = fmt(totalPaid);
+            document.getElementById('hypo-interest').textContent = fmt(totalInterest);
+            document.getElementById('hypo-equity').textContent = fmt(ownEquity);
+
+            let bal = P0;
+            let cumPrincipal = 0;
+            let cumInterest = 0;
+            const labels = [];
+            const dataBalance = [];
+            const dataCumInterest = [];
+            const dataCumPrincipal = [];
             let rows = '';
-            for (let y = 1; y <= years; y++) {
-                const a = yearA[y] || { balance: 0, equity: P0 };
-                const b = yearB[y] || { balance: 0, portfolio: 0, equity: P0 };
-                labels.push('Rok ' + y);
-                dataA.push(Math.round(a.equity));
-                dataB.push(Math.round(b.equity));
-                rows += `<tr><td>${y}</td><td>${fmt(a.balance)}</td><td>${fmt(a.equity)}</td><td>${fmt(b.balance)}</td><td>${fmt(b.portfolio)}</td><td>${fmt(b.equity)}</td></tr>`;
+
+            for (let m = 1; m <= n; m++) {
+                const interest = bal * r;
+                const principal = Math.min(payment - interest, bal);
+                bal = Math.max(0, bal - principal);
+                cumInterest += interest;
+                cumPrincipal += principal;
+
+                if (m % 12 === 0 || m === n) {
+                    const y = Math.ceil(m / 12);
+                    labels.push('Rok ' + y);
+                    dataBalance.push(Math.round(bal));
+                    dataCumInterest.push(Math.round(cumInterest));
+                    dataCumPrincipal.push(Math.round(cumPrincipal));
+                    rows += `<tr>
+                        <td>${y}</td>
+                        <td>${fmt(bal)}</td>
+                        <td>${fmt(cumPrincipal)}</td>
+                        <td>${fmt(cumInterest)}</td>
+                        <td>${fmt(cumPrincipal + cumInterest)}</td>
+                    </tr>`;
+                }
             }
             document.getElementById('hypo-table-body').innerHTML = rows;
 
@@ -914,14 +921,56 @@
                 data: {
                     labels,
                     datasets: [
-                        { label: 'Klasická hypotéka (majetek)', data: dataA, borderColor: '#94a3b8', backgroundColor: 'transparent', tension: 0.3, borderWidth: 2.5, pointRadius: 2 },
-                        { label: 'Hypotéka + investování (majetek)', data: dataB, borderColor: '#9f1239', backgroundColor: 'rgba(159,18,57,0.08)', fill: true, tension: 0.3, borderWidth: 2.5, pointRadius: 2, pointBackgroundColor: '#9f1239' }
+                        {
+                            label: 'Zbývající jistina',
+                            data: dataBalance,
+                            borderColor: '#9f1239',
+                            backgroundColor: 'rgba(159,18,57,0.06)',
+                            fill: true,
+                            tension: 0.3,
+                            borderWidth: 2.5,
+                            pointRadius: 2,
+                            pointBackgroundColor: '#9f1239'
+                        },
+                        {
+                            label: 'Zaplacený úrok (kumulativní)',
+                            data: dataCumInterest,
+                            borderColor: '#e11d48',
+                            backgroundColor: 'transparent',
+                            tension: 0.3,
+                            borderWidth: 2.5,
+                            pointRadius: 2,
+                            pointBackgroundColor: '#e11d48',
+                            borderDash: [4, 4]
+                        },
+                        {
+                            label: 'Zaplacená jistina (kumulativní)',
+                            data: dataCumPrincipal,
+                            borderColor: '#64748b',
+                            backgroundColor: 'transparent',
+                            tension: 0.3,
+                            borderWidth: 2.5,
+                            pointRadius: 2,
+                            pointBackgroundColor: '#64748b'
+                        }
                     ]
                 },
                 options: {
-                    responsive: true, maintainAspectRatio: false,
-                    plugins: { legend: { position: 'bottom', labels: { usePointStyle: true, padding: 16 } }, tooltip: { callbacks: { label: c => c.dataset.label + ': ' + fmt(c.raw) } } },
-                    scales: { y: { ticks: { callback: v => v >= 1e6 ? (v/1e6).toFixed(1)+' mil.' : (v/1e3).toFixed(0)+' tis.' }, grid: { color: '#f1f5f9' } }, x: { grid: { display: false } } }
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { usePointStyle: true, padding: 16 } },
+                        tooltip: { callbacks: { label: c => c.dataset.label + ': ' + fmt(c.raw) } }
+                    },
+                    scales: {
+                        y: {
+                            ticks: {
+                                callback: v => v >= 1e6 ? (v / 1e6).toFixed(1) + ' mil.' : (v / 1e3).toFixed(0) + ' tis.'
+                            },
+                            grid: { color: '#f1f5f9' }
+                        },
+                        x: { grid: { display: false } }
+                    }
                 }
             });
         }
@@ -929,7 +978,9 @@
             const open = document.getElementById('hypo-table-wrap').classList.toggle('open');
             this.textContent = open ? 'Skrýt roční přehled' : 'Zobrazit roční přehled';
         });
-        ['hypo-amount','hypo-rate','hypo-years','hypo-extra','hypo-invest-rate'].forEach(id => document.getElementById(id).addEventListener('input', calculateHypo));
+        ['hypo-price','hypo-amount','hypo-rate','hypo-years'].forEach(id =>
+            document.getElementById(id).addEventListener('input', calculateHypo)
+        );
         calculateHypo();
     })();
     </script>
